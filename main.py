@@ -25,29 +25,45 @@ print("Current url:" + current_url)
 title = driver.title
 print("Current tittle:" + title)
 
-# Select username button
-username = driver.find_element(By.ID, "login_field")
 
-# Get user name from user
-username_user = input(" \n\n\n\nEnter User Name :")
+while True:
 
-# Write user name to user name block
-username.send_keys(username_user)
+    driver.get("https://github.com/login")
+    # Select username button
+    username = driver.find_element(By.ID, "login_field")
 
-# Select password button 
-password = driver.find_element(By.ID, "password")
+    # Get user name from user
+    username_user = input(" \n\n\n\nEnter User Name :")
 
-# Get pasword from user
-password_user = getpass("\nEnter Password (your password hidden) ")
+    # Write user name to user name block
+    username.send_keys(username_user)
 
-# Write to user password to password block
-password.send_keys(password_user)
+    # Select password button 
+    password = driver.find_element(By.ID, "password")
 
-# # Submit with ENTER
-# password.send_keys(Keys.ENTER)
+    # Get pasword from user
+    password_user = getpass("\nEnter Password (your password hidden) ")
 
-# Submit with Sing In button 
-sing_in = driver.find_element(By.NAME, "commit").click()
+    # Write to user password to password block
+    password.send_keys(password_user)
+
+    # # Submit with ENTER
+    # password.send_keys(Keys.ENTER)
+
+    # Submit with Sing In button 
+    sing_in = driver.find_element(By.NAME, "commit").click()
+
+    # get current url
+    current_url = driver.current_url
+    print("\nCurrent url:" + current_url)
+
+    # check login or not  
+    if "session" in current_url:
+        print("\n Try again ...")
+    else:
+        print("Succesfully log in to github.")
+        break
+
 
 # driver.get("https://youtube.com")
 # current_url = driver.current_url
