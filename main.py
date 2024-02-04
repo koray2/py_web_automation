@@ -43,6 +43,7 @@ password_user = getpass("\nEnter Password (your password hidden) ")
 # Write to user password to password block
 password.send_keys(password_user)
 
+# Submit
 password.send_keys(Keys.ENTER)
 
 # driver.get("https://youtube.com")
