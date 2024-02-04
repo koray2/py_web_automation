@@ -3,6 +3,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver import Keys
+from getpass import getpass
 
 # Chrome browser and driver must be same version. You can check your chrome version in: 
 # Setting(triple dots) >> Help >> About Google Chrome
@@ -23,6 +25,25 @@ print("Current url:" + current_url)
 title = driver.title
 print("Current tittle:" + title)
 
+# Select username button
+username = driver.find_element(By.ID, "login_field")
+
+# Get user name from user
+username_user = input(" \n\n\n\nEnter User Name :")
+
+# Write user name to user name block
+username.send_keys(username_user)
+
+# Select password button 
+password = driver.find_element(By.ID, "password")
+
+# Get pasword from user
+password_user = getpass("\nEnter Password (your password hidden) ")
+
+# Write to user password to password block
+password.send_keys(password_user)
+
+password.send_keys(Keys.ENTER)
 
 # driver.get("https://youtube.com")
 # current_url = driver.current_url
