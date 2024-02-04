@@ -12,7 +12,7 @@ service = Service("chromedriver.exe")
 driver = webdriver.Chrome(service = service)
 
 # link to go/test
-driver.get("https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fspmallick%2Flearnopencv")
+driver.get("https://github.com/login")
 
 # for maximize window
 driver.maximize_window()
@@ -43,11 +43,11 @@ password_user = getpass("\nEnter Password (your password hidden) ")
 # Write to user password to password block
 password.send_keys(password_user)
 
-# Submit with ENTER
-password.send_keys(Keys.ENTER)
+# # Submit with ENTER
+# password.send_keys(Keys.ENTER)
 
 # Submit with Sing In button 
-sing_in = driver.find_element(By.NAME, "commit").click
+sing_in = driver.find_element(By.NAME, "commit").click()
 
 # driver.get("https://youtube.com")
 # current_url = driver.current_url
