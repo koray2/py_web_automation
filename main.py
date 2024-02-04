@@ -43,8 +43,11 @@ password_user = getpass("\nEnter Password (your password hidden) ")
 # Write to user password to password block
 password.send_keys(password_user)
 
-# Submit
+# Submit with ENTER
 password.send_keys(Keys.ENTER)
+
+# Submit with Sing In button 
+sing_in = driver.find_element(By.NAME, "commit").click
 
 # driver.get("https://youtube.com")
 # current_url = driver.current_url
